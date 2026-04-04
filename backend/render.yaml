@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: nia-vision-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 -b 0.0.0.0:$PORT vision_api:app
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    rootDir: backend
