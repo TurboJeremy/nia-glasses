@@ -8,7 +8,7 @@ class NiaBackendService {
     // TODO: Replace with your actual backend URL
     private let baseURL: String
 
-    init(baseURL: String = "https://YOUR_SERVER_URL/api/vision") {
+    init(baseURL: String = "https://septarian-reyna-unsorrowing.ngrok-free.dev/api/vision") {
         self.baseURL = baseURL
     }
 
