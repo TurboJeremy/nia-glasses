@@ -2,15 +2,8 @@ import Foundation
 import MWDATCore
 import SwiftUI
 
-#if DEBUG
-import MWDATMockDevice
-#endif
-
 @main
 struct NiaGlassesApp: App {
-    #if DEBUG
-    @StateObject private var debugMenuViewModel = DebugMenuViewModel(mockDeviceKit: MockDeviceKit.shared)
-    #endif
     private let wearables: WearablesInterface
     @StateObject private var wearablesViewModel: WearablesViewModel
 
@@ -36,18 +29,6 @@ struct NiaGlassesApp: App {
                 } message: {
                     Text(wearablesViewModel.errorMessage)
                 }
-                #if DEBUG
-                .overlay(alignment: .topTrailing) {
-                    Button("Mock Device") {
-                        debugMenuViewModel.showDebugMenu = true
-                    }
-                    .padding()
-                    .font(.caption)
-                }
-                .sheet(isPresented: $debugMenuViewModel.showDebugMenu) {
-                    MockDeviceKitView(viewModel: debugMenuViewModel.mockDeviceKitViewModel)
-                }
-                #endif
         }
     }
 }
