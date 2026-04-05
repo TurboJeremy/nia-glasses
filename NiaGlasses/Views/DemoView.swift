@@ -4,27 +4,29 @@ import SwiftUI
 
 // MARK: - Camera Preview
 
+class CameraPreviewView: UIView {
+    override class var layerClass: AnyClass { AVCaptureVideoPreviewLayer.self }
+
+    var previewLayer: AVCaptureVideoPreviewLayer {
+        layer as! AVCaptureVideoPreviewLayer
+    }
+
+    func configure(session: AVCaptureSession) {
+        previewLayer.session = session
+        previewLayer.videoGravity = .resizeAspectFill
+    }
+}
+
 struct CameraPreview: UIViewRepresentable {
     let session: AVCaptureSession
 
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: .zero)
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
-        context.coordinator.previewLayer = previewLayer
+    func makeUIView(context: Context) -> CameraPreviewView {
+        let view = CameraPreviewView()
+        view.configure(session: session)
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: Context) {
-        context.coordinator.previewLayer?.frame = uiView.bounds
-    }
-
-    func makeCoordinator() -> Coordinator { Coordinator() }
-
-    class Coordinator {
-        var previewLayer: AVCaptureVideoPreviewLayer?
-    }
+    func updateUIView(_ uiView: CameraPreviewView, context: Context) {}
 }
 
 // MARK: - Demo ViewModel
