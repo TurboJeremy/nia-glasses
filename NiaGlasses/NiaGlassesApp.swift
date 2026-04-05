@@ -24,6 +24,14 @@ struct NiaGlassesApp: App {
     var body: some Scene {
         WindowGroup {
             MainView(wearables: wearables, viewModel: wearablesViewModel)
+                .onOpenURL { url in
+                    #if DEBUG
+                    NSLog("[NiaGlasses] Received deep link: \(url)")
+                    #endif
+                    // Forward the callback URL to the Wearables SDK
+                    // so it can complete the registration flow
+                    Wearables.handleURL(url)
+                }
                 .alert("Error", isPresented: $wearablesViewModel.showError) {
                     Button("OK") { wearablesViewModel.dismissError() }
                 } message: {

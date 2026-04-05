@@ -41,9 +41,9 @@
 		<key>MetaAppID</key>
 		<string>26301981209468778</string>
 		<key>ClientToken</key>
-		<string>$(CLIENT_TOKEN)</string>
+		<string>1a5f01a9ada5b9335d3538a08166b4e3</string>
 		<key>TeamID</key>
-		<string>$(DEVELOPMENT_TEAM)</string>
+		<string>824P273S52</string>
 	</dict>
 	<!-- UIBackgroundModes stripped for free provisioning profile. Re-enable with paid Apple Developer account. -->
 	<key>NSBluetoothAlwaysUsageDescription</key>
