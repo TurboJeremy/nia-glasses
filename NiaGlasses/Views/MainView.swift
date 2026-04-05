@@ -66,6 +66,23 @@ struct MainView: View {
                     if viewModel.registrationState == .registering {
                         ProgressView("Connecting...")
                     }
+
+                    // Demo mode — bypass Meta auth, use iPhone camera
+                    NavigationLink {
+                        DemoView()
+                    } label: {
+                        Label("Demo Mode (iPhone Camera)", systemImage: "iphone.camera")
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.orange.opacity(0.15))
+                            .foregroundColor(.orange)
+                            .cornerRadius(12)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.orange.opacity(0.4), lineWidth: 1)
+                            )
+                    }
                 }
 
                 Spacer()

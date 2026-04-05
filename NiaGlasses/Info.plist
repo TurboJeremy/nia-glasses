@@ -48,6 +48,8 @@
 	<!-- UIBackgroundModes stripped for free provisioning profile. Re-enable with paid Apple Developer account. -->
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Nia needs Bluetooth to connect to your Meta glasses</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Nia uses the camera in demo mode to show you what she sees</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Save photos captured from your glasses</string>
 	<key>UIApplicationSceneManifest</key>
