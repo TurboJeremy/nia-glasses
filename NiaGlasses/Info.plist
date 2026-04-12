@@ -37,15 +37,14 @@
 	<key>MWDAT</key>
 	<dict>
 		<key>AppLinkURLScheme</key>
-		<string>niaglasses://</string>
+		<string>https://glasses.turbotime.io</string>
 		<key>MetaAppID</key>
-		<string>26301981209468778</string>
-		<key>ClientToken</key>
-		<string>1a5f01a9ada5b9335d3538a08166b4e3</string>
-		<key>TeamID</key>
-		<string>824P273S52</string>
+		<string>878298721889428</string>
 	</dict>
-	<!-- UIBackgroundModes stripped for free provisioning profile. Re-enable with paid Apple Developer account. -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+	</array>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Nia needs Bluetooth to connect to your Meta glasses</string>
 	<key>NSCameraUsageDescription</key>
